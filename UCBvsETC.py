@@ -40,12 +40,12 @@ for Delta in Delta_values:
     optimal_m = ETCAlgorithm(n, 100, bandit).optimal_m(Delta)
 
     R_UCB[i], _ = UCB1Algorithm(n, bandit, delta).regret_analysis(2000, Deltas)
-    R_ETC_optimal[i], _ = ETCAlgorithm(n, optimal_m, bandit).regret_analysis(2000, Deltas)
+    R_ETC_optimal[i], _ = ETCAlgorithm(n, 2, bandit).regret_analysis(2000, Deltas)
     R_ETC_25[i], _ = ETCAlgorithm(n, 25, bandit).regret_analysis(2000, Deltas)
     R_ETC_50[i], _ = ETCAlgorithm(n, 50, bandit).regret_analysis(2000, Deltas)
     R_ETC_75[i], _ = ETCAlgorithm(n, 75, bandit).regret_analysis(2000, Deltas)
     R_ETC_100[i], _ = ETCAlgorithm(n, 100, bandit).regret_analysis(2000, Deltas)
-    # print(R_UCB[i])
+    print(R_UCB[i])
     i += 1
 
 dataset = {'UCB': R_UCB, 'ETC_optimal': R_ETC_optimal, 'm = 25': R_ETC_25, 'm = 50': R_ETC_50, 'm = 75': R_ETC_75, 'm = 100': R_ETC_100}
